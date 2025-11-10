@@ -136,7 +136,7 @@ io.on("connection", (socket) => {
         { recipientId, content: initialMessage, senderId: userId },
         { headers: { "X-API-Key": SOCKET_TO_NEXT_API_KEY } }
       );
-      const newConversation = response.data;
+      const newConversation = response.data.conversation;
       socket.emit("conversationCreated", newConversation);
 
       const recipientSocketId = activeUsers.get(recipientId);
